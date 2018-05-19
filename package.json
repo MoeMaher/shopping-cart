@@ -1,0 +1,23 @@
+{
+  "name": "shopping-cart",
+  "version": "1.0.0",
+  "description": "",
+  "main": "cart.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MoeMaher/shopping-cart.git"
+  },
+  "keywords": [
+    "cart",
+    "shopping"
+  ],
+  "author": "Mohamed Maher",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MoeMaher/shopping-cart/issues"
+  },
+  "homepage": "https://github.com/MoeMaher/shopping-cart#readme"
+}
