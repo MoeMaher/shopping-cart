@@ -15,6 +15,7 @@ export const Cart = (function() {
 
             // Intializing the instance variable using the current class as the key
             _items.set(this, []);
+            this.$maher = 'maher';
         }
 
         // get the list of items

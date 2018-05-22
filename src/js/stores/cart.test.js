@@ -1,6 +1,6 @@
 import { assert } from 'chai';
 
-import {Cart, Item, Product} from "./cart.es6";
+import {Cart, Product} from "./cart.es6.js";
 
 
 describe('Cart', function () {
