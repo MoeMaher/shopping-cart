@@ -15,6 +15,7 @@ class mainComponent extends Component {
         this.state = {
             items: cartStore.getItems(),
             products: [],
+            viewCart: props.viewCart
         }
         this.getProds();
         this.incNotify = props.incNotify;
@@ -29,39 +30,30 @@ class mainComponent extends Component {
         })
     }
 
-    addprod(id, title, price){
-        cartActions.addItem(new Product(id, title, price));
+    addprod(id, title, price, image){
+        cartActions.addItem(new Product(id, title, price, image));
         this.incNotify();
     }
 
-    _onChange(){
+    _onChange(field, value){
+
         this.setState({
-            items: cartStore.getItems()
+            items: cartStore.getItems(),
+            // viewCart: false
         })
     }
 
     render () {
         console.log(this.state.items);
-        let itemViewStyle = {
-            // display: '', /* Hidden by default */
-            position: 'fixed', /* Stay in place */
-            zIndex: '3', /* Sit on top */
-            paddingTop: '100px', /* Location of the box */
-            right: '0',
-            top: '0',
-            width: '100%', /* Full width */
-            height: '100%', /* Full height */
-            overflow: 'auto', /* Enable scroll if needed */
-            // backgroundColor: 'rgb(0,0,0)', /* Fallback color */
-            backgroundColor: 'rgba(0,0,0,0.4)', /* Black w/ opacity */
-            float: 'right'
-    }
-        let cardViewStyle = {
-        };
+
+        let itemView = null;
+        if(this.state.viewCart()) {
+            itemView = (<ItemViewComponent items={this.state.items}/>)
+        }
         return (
             <Aux>
-                <ListOfCards className={classes.left} addProduct={this.addprod.bind(this)} products={this.state.products}/>
-                <ItemViewComponent className={itemViewStyle} items={this.state.items}/>
+                {itemView}
+                <ListOfCards addProduct={this.addprod.bind(this)} products={this.state.products}/>
             </Aux>
         );
     }

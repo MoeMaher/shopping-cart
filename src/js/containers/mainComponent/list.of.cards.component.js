@@ -6,7 +6,7 @@ var CardComponent = require('../../components/Card/card.component').CardComponen
 export const ListOfCards = (props) => {
 
     return (
-        <span>
+        <span className={{marginTop: '150px'}} >
             {props.products.map((value) => {
                 return (
                     <CardComponent

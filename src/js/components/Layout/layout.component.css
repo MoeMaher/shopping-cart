@@ -1,16 +1,21 @@
 .content {
-    margin-top: 16px;
+    margin-top: 90px;
     width: 100%;
     max-width: 100%;
 }
 
 .mainHeader {
     border-bottom: 1px solid #000;
-
     border-width: 2px;
-    border-color: #eee;
-
+    background-color: darkslateblue;
+    color: #eeeeee;
+    border-color: #eee !important;
     display: flex;
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    top: 0px;
+    left: 0px;
 }
 
 button {

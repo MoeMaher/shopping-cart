@@ -1,14 +1,45 @@
-.card {
-    display: inline-block;
-    margin: 10px;
-    border: 1px solid #eee;
-    box-shadow: 0 2px 2px #ccc;
-    width: 300px;
+.items {
+    width: 320px;
     height: 100%;
+    transition: 1s;
+    background-color: rgba(256, 256, 256, 0.9);
+    z-index: 1;
+    position: fixed;
+    right: 0px;
+    top: 0px;
+    border: 1px solid #eee;
     padding: 20px;
+    box-shadow: 0 2px 2px #ccc;
 }
 
-.header {
-    width: 100%;
-    hight: 12px;
+header {
+    margin-top: 80px;
+}
+
+h4 {
+    margin: 0px;
+}
+
+p {
+    margin: 0px;
+}
+
+.bold {
+    font-weight: bold;
+    margin: 0px;
+}
+
+a {
+    text-decoration:none;
+    display: flex;
+}
+
+.divider {
+    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;
 }

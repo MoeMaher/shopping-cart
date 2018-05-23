@@ -33,30 +33,20 @@ class App extends Component {
         this.setState({
             viewCart: newCartState
         })
+
+    }
+
+    getViewCart() {
+        return this.state.viewCart;
     }
 
     render() {
         let cartView = null;
 
-        if (this.state.viewCart) {
-            cartView = (
-                <article>
-                    <header>
-                        <h1>Items</h1>
-                    </header>
-                </article>
-            )
-        }
-
-        let cartStyle = {
-
-        };
-
-
-
         return (
             <Layout toggleCartView={this.toggleCartView.bind(this)} numItems={this.state.numOfItems}>
                 <CartComponent
+                    viewCart ={this.getViewCart.bind(this)}
                     incNotify={this.incItems.bind(this)}
                     decNotify={this.decItems.bind(this)}
                 />

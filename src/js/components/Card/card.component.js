@@ -27,8 +27,11 @@ export const CardComponent = (props) => {
         </div>
 
         <footer>
-            <h4>price: {props.price}</h4>
-            <button onClick={()=> {props.onAdd(props.id, props.title, props.price)}}>add</button>
+            <ul>
+                <h4>price: {props.price}
+                <button onClick={()=> {props.onAdd(props.id, props.title, props.price, props.image)}}>add</button>
+                </h4>
+            </ul>
         </footer>
 
     </div>

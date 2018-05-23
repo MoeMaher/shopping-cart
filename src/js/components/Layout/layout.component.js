@@ -16,6 +16,7 @@ const iconPosition = {
     marginBottom: 'auto'
 }
 
+
 const layout = (props) => (
     <Aux>
 

@@ -159,7 +159,7 @@ export const Item = (function() {
         // inc/dec the count when adding/removing a product
         incrementCount() {
             _count.set(this, _count.get(this) + 1);
-            _price.set(this, _price.get(this) + _product.get(this).getPrice());
+            _price.set(this, Number(_price.get(this)) + Number(_product.get(this).getPrice()));
         }
 
         decrementCount() {
@@ -184,6 +184,7 @@ export const Product = (function() {
     const _name = new WeakMap();
     const _id =  new WeakMap();
     const _price =  new WeakMap();
+    const _image =  new WeakMap();
 
 
     class Product {
@@ -193,10 +194,11 @@ export const Product = (function() {
          */
 
 
-        constructor(id, name, price) {
+        constructor(id, name, price, image) {
             _name.set(this,name);
             _id.set(this, id);
             _price.set(this, price);
+            _image.set(this, image);
         }
 
         // Getters
@@ -210,6 +212,10 @@ export const Product = (function() {
 
         getName() {
             return _name.get(this);
+        }
+
+        getImage() {
+            return _image.get(this);
         }
     }
 
