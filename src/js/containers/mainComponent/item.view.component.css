@@ -1,15 +1,73 @@
 .items {
-    width: 320px;
+    width: 300px;
+    visibility: visible;
     height: 100%;
-    transition: 1s;
-    background-color: rgba(256, 256, 256, 0.9);
+    transition: 0.5s;
+    /*background-color: #414141;*/
     z-index: 1;
     position: fixed;
     right: 0px;
     top: 0px;
     border: 1px solid #eee;
+    /*color: #ffffff;*/
     padding: 20px;
     box-shadow: 0 2px 2px #ccc;
+}
+
+.itemsHidden {
+    width: 0px;
+    visibility: hidden;
+    height: 100%;
+    transition: 0.5s;
+    /*background-color: #414141;*/
+    z-index: 1;
+    position: fixed;
+    right: 0px;
+    /*color: #ffffff;*/
+
+    top: 0px;
+    border: 1px solid #eee;
+    padding: 20px;
+    box-shadow: 0 2px 2px #ccc;
+}
+
+button {
+    color: #ffffff;
+}
+
+@media only screen and (max-width: 400px) {
+
+    .items {
+        width: 88% !important;
+        visibility: visible;
+        /*color: #ffffff;*/
+        height: 100%;
+        transition: 1s;
+        z-index: 1;
+        /*background-color: #414141;*/
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        border: 1px solid #eee;
+        padding: 20px;
+        box-shadow: 0 2px 2px #ccc;
+    }
+
+    .itemsHidden {
+        width: 0px;
+        visibility: hidden;
+        height: 100%;
+        transition: 0.5s;
+        z-index: 1;
+        /*background-color: #414141;*/
+        position: fixed;
+        right: 0px;
+        top: 0px;
+        /*color: #ffffff;*/
+        border: 1px solid #eee;
+        padding: 20px;
+        box-shadow: 0 2px 2px #ccc;
+    }
 }
 
 header {

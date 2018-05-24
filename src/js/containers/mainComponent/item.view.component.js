@@ -1,13 +1,22 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
 import classes from './item.view.component.css';
+import mainClasses from '../../../App.css';
+import { cartStore } from '../../stores/cartStore';
+import { cartActions } from '../../actions/cartActions';
+
+var itemsRef = React.createRef();
 
 export const ItemViewComponent = (props) => {
     console.log(props.items)
+
     return (
-        <div id={"sideNav"} className={classes.items}>
+        <div  ref={(inp)=> props.setCartView(inp)} className={`${mainClasses["primary-color-background"]} ${classes.items}`}>
             <header>
-                <h1>Items</h1>
+                <h1>
+                    Items
+                <button style={{marginTop:'auto',marginBottom:'auto'}}>clear</button>
+                </h1>
             </header>
             <body>
             <ul style={{padding: '0px'}}>
@@ -50,15 +59,18 @@ export const ItemViewComponent = (props) => {
                                 <p>  price: {value.getPrice()}</p>
                             </div>
                             <div style={{marginTop: 'auto', marginBottom: 'auto', display: 'flex'}}>
-                                <a href={'#'}>
+                                <a onClick={()=> {cartActions.addItem(value.getProduct())}} href={'#'}>
                                     <div style={addIconStyle} />
                                 </a>
-                                    <p> {value.getCount()}</p>
-                                <a href={'#'}>
+                                <a> {value.getCount()}</a>
+                                <a onClick={()=> {cartActions.removeItem(value.getProduct())}} href={'#'}>
                                     <div style={removeIconStyle} />
                                 </a>
                             </div>
-                            <br />
+                            <br/>
+                            <br/>
+                            <br/>
+                            <br/>
                         </li>
                     )
 
@@ -66,7 +78,7 @@ export const ItemViewComponent = (props) => {
             </ul>
             </body>
             <footer>
-                <h4>Total Price: 100</h4>
+                <h4>Total Price: {cartStore.getTotal()}</h4>
             </footer>
         </div>
 

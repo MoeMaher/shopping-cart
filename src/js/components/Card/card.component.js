@@ -1,6 +1,7 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
 import classes from  './card.component.css';
+import mainClasses from '../../../App.css';
 
 
 export const CardComponent = (props) => {
@@ -27,11 +28,11 @@ export const CardComponent = (props) => {
         </div>
 
         <footer>
-            <ul>
-                <h4>price: {props.price}
-                <button onClick={()=> {props.onAdd(props.id, props.title, props.price, props.image)}}>add</button>
+            <li style={{listStyleType: 'none'}}>
+                <h4 style={{display: 'flex'}}><a style={{margin: 'auto', marginLeft:'0px'}} ><a className={mainClasses["accent-color"]}>price: </a> {props.price}</a>
+                <button onClick={()=> {props.onAdd(props.id, props.title, props.price, props.image)}}>Add to Cart</button>
                 </h4>
-            </ul>
+            </li>
         </footer>
 
     </div>

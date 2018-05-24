@@ -1,0 +1,31 @@
+button:hover{
+    background-color: #C05746;
+    color: #ffffff;
+}
+
+button {
+    padding: auto;
+    color: #000000;
+    margin-top: 5px;
+    background: rgba(0,0,0,0);
+    border-color: rgba(0,0,0,0);
+}
+
+.deep-shadow-background {
+    background-color: #282828;
+    color: #ffffff;
+}
+
+.accent-color-background {
+    background-color: #C05746;
+    color: #ffffff;
+}
+
+.primary-color-background {
+    background-color: #414141;
+    color: #ffffff;
+}
+
+.accent-color {
+    color: #C05746;
+}

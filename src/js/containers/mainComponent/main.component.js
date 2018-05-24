@@ -15,11 +15,12 @@ class mainComponent extends Component {
         this.state = {
             items: cartStore.getItems(),
             products: [],
-            viewCart: props.viewCart
+            viewCart: props.viewCart,
         }
         this.getProds();
         this.incNotify = props.incNotify;
         this.decNotify = props.decNotify;
+        cartStore.addChangeListener(this._onChange.bind(this));
     }
 
     getProds () {
@@ -35,20 +36,43 @@ class mainComponent extends Component {
         this.incNotify();
     }
 
-    _onChange(field, value){
+    _onChange(){
 
         this.setState({
             items: cartStore.getItems(),
-            // viewCart: false
         })
+    }
+
+    cartView = null;
+
+    setCartView(view){
+        this.cartView = view;
     }
 
     render () {
         console.log(this.state.items);
 
-        let itemView = null;
+
+
+        let itemView = (<ItemViewComponent setCartView={this.setCartView.bind(this)} items={this.state.items}/>)
+        console.log('viewCart')
+        console.log(this.state.viewCart())
         if(this.state.viewCart()) {
-            itemView = (<ItemViewComponent items={this.state.items}/>)
+            if (this.cartView) {
+                console.log('changing')
+                this.cartView.style.visibility = 'visible';
+                this.cartView.style.width = '300px';
+                // this.cartView.style.display = 'block';
+            }
+        } else {
+            console.log('can close')
+            if (this.cartView.style.width) {
+                console.log('will cloase')
+                this.cartView.style.visibility = 'hidden';
+                this.cartView.style.width = '0px';
+                // this.cartView.style.display = 'none';
+
+            }
         }
         return (
             <Aux>

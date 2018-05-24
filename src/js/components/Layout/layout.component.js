@@ -1,13 +1,14 @@
 import React from 'react';
 import Aux from '../../hoc/Aux';
 import classes from './layout.component.css';
+import mainClasses from '../../../App.css';
 
 const iconStyle = {
-    backgroundImage:'url(http://icons.iconarchive.com/icons/iconsmind/outline/256/Shopping-Cart-icon.png)',
+    backgroundImage:'url(https://www.iconsdb.com/icons/preview/white/shopping-cart-xxl.png  )',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '38px',
-    height: '38px'
+    height: '38px',
 }
 
 const iconPosition = {
@@ -20,13 +21,12 @@ const iconPosition = {
 const layout = (props) => (
     <Aux>
 
-        <div className={classes.mainHeader}>
+        <div className={`${mainClasses["deep-shadow-background"]} ${classes.mainHeader}`}>
             <h1>SHOP</h1>
             <div style={iconPosition}>
                 <div onClick={props.toggleCartView} style={iconStyle}><span className={classes.num}>{props.numItems}</span></div>
             </div>
         </div>
-
 
 
         <main className={classes.content}>

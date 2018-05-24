@@ -1,6 +1,7 @@
 import { Cart } from './cart.es6.js';
-var AppDispatcher = require('../dispatcher/AppDispatcher');
-var appConstants = require('../constants/appConstants');
+import { AppDispatcher } from "../dispatcher/AppDispatcher";
+import { appConstants } from "../constants/appConstants";
+
 var objectAssign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
@@ -20,18 +21,45 @@ export const cartStore = objectAssign({}, EventEmitter.prototype, {
     getItems: function () {
         return cart.getItems();
     },
+    getItem: function (product) {
+        return cart.getItem(product);
+    },
+    getTotal: function() {
+        return cart.getTotal();
+    },
+    hasProduct: function(product) {
+        return cart.hasProduct(product);
+    }
+
 });
 
-AppDispatcher.register(function(payload){
-  var action = payload.action;
-  switch(action.actionType){
-    case appConstants.ADD_ITEM:
-      cart.addItem(action.data);
-      cartStore.emit(CHANGE_EVENT);
-      break;
-    default:
-      return true;
-  }
+AppDispatcher.register(function(payload) {
+    var action = payload.action;
+    console.log('in resister store with action type');
+    console.log(action);
+    switch (action.actionType) {
+        case (appConstants.ADD_ITEM):
+            cart.addItem(action.data);
+            console.log('adding item')
+            cartStore.emit(CHANGE_EVENT);
+            break;
+        case appConstants.CLEAR_CART:
+            cart.clearCart(action.data);
+            cartStore.emit(CHANGE_EVENT);
+            break;
+        case appConstants.REMOVE_ITEM:
+            cart.removeItem(action.data);
+            console.log('removing Item')
+            cartStore.emit(CHANGE_EVENT);
+            break;
+        case appConstants.REMOVE_PRODUCT:
+            cart.removeProduct(action.data);
+            cartStore.emit(CHANGE_EVENT);
+            break;
+        default:
+            console.log('default')
+            return true;
+    }
 });
 
 

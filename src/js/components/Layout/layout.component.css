@@ -5,14 +5,14 @@
 }
 
 .mainHeader {
-    border-bottom: 1px solid #000;
-    border-width: 2px;
-    background-color: darkslateblue;
-    color: #eeeeee;
-    border-color: #eee !important;
+    /*border-bottom: 1px solid #000;*/
+    /*border-width: 2px;*/
+    /*background-color: #282828;*/
+    /*color: #ffffff;*/
+    /*border-color: #eee !important;*/
     display: flex;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 2;
     top: 0px;
     left: 0px;
@@ -20,6 +20,7 @@
 
 button {
     float: right;
+    padding: 10px;
 }
 
 h1 {
@@ -42,7 +43,7 @@ h1 {
 }
 .num {
     position: absolute;
-    right: 19px;
+    right: 17px;
     top: 7px;
-    color: #000000;
+    color: #ffffff;
 }

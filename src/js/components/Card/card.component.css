@@ -16,6 +16,28 @@
 
 }
 
+.card header {
+    margin-top: 0px;
+}
+
+.card footer li h4 button {
+    color: #000000;
+
+}
+
+.card footer li h4 button:hover {
+    color: #ffffff;
+
+}
+
+.card:hover {
+    background-color: #eeeeee;
+}
+
+p {
+    margin-top: 10px !important;
+}
+
 footer ul h4 {
     width: 50%;
     padding-right: 0px;
@@ -46,7 +68,7 @@ footer ul h4 {
         margin: 10px;
         border: 1px solid #eee;
         box-shadow: 0 2px 2px #ccc;
-        width: 600px;
+        width: 400px;
         padding: 20px;
     }
 
