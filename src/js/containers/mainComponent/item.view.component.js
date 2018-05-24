@@ -15,7 +15,7 @@ export const ItemViewComponent = (props) => {
             <header>
                 <h1>
                     Items
-                <button style={{marginTop:'auto',marginBottom:'auto'}}>clear</button>
+                <button onClick={cartActions.clearCart} style={{marginTop:'auto',marginBottom:'auto'}}>clear</button>
                 </h1>
             </header>
             <body>
@@ -32,7 +32,7 @@ export const ItemViewComponent = (props) => {
                         marginBottom: 'auto'
                     };
                     let addIconStyle = {
-                        backgroundImage: 'url(https://image.flaticon.com/icons/svg/60/60740.svg)',
+                        backgroundImage: 'url(https://res.cloudinary.com/nawwar/image/upload/v1527196337/add.png)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         width: '20px',
@@ -42,7 +42,7 @@ export const ItemViewComponent = (props) => {
                         marginBottom: 'auto'
                     };
                     let removeIconStyle = {
-                        backgroundImage: 'url(https://png.icons8.com/ios/1600/minus.png)',
+                        backgroundImage: 'url(https://res.cloudinary.com/nawwar/image/upload/v1527196337/sub.png)',
                         backgroundSize: 'cover',
                         backgroundPosition: 'center',
                         width: '20px',
@@ -80,6 +80,10 @@ export const ItemViewComponent = (props) => {
             <footer>
                 <h4>Total Price: {cartStore.getTotal()}</h4>
             </footer>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
         </div>
 
 
