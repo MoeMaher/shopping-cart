@@ -35,7 +35,8 @@ build/Release
 # Dependency directories
 node_modules/
 jspm_packages/
-/.idea/
+.idea/
+shopping-cart.iml
 
 # TypeScript v1 declaration files
 typings/

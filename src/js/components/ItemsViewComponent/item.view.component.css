@@ -3,14 +3,11 @@
     visibility: visible;
     height: 100%;
     transition: 0.5s;
-    /*background-color: #414141;*/
     z-index: 1;
     position: fixed;
     right: 0px;
     top: 0px;
-    border: 1px solid #eee;
     overflow:scroll;
-    /*color: #ffffff;*/
     padding: 20px;
     box-shadow: 0 2px 2px #ccc;
 }
@@ -20,14 +17,11 @@
     visibility: hidden;
     height: 100%;
     transition: 0.5s;
-    /*background-color: #414141;*/
     z-index: 1;
     position: fixed;
     right: 0px;
-    /*color: #ffffff;*/
     overflow:scroll;
     top: 0px;
-    border: 1px solid #eee;
     padding: 20px;
     box-shadow: 0 2px 2px #ccc;
 }
@@ -41,16 +35,13 @@ button {
     .items {
         width: 88% !important;
         visibility: visible;
-        /*color: #ffffff;*/
         height: 100%;
         transition: 1s;
         z-index: 1;
-        /*background-color: #414141;*/
         overflow:scroll;
         position: fixed;
         right: 0px;
         top: 0px;
-        border: 1px solid #eee;
         padding: 20px;
         box-shadow: 0 2px 2px #ccc;
     }
@@ -61,13 +52,10 @@ button {
         height: 100%;
         transition: 0.5s;
         z-index: 1;
-        /*background-color: #414141;*/
         overflow: auto;
         position: fixed;
         right: 0px;
         top: 0px;
-        /*color: #ffffff;*/
-        border: 1px solid #eee;
         padding: 20px;
         box-shadow: 0 2px 2px #ccc;
     }

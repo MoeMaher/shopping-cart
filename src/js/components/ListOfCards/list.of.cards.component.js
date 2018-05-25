@@ -9,7 +9,7 @@ import { CardComponent } from '../Card/card.component';
 export const ListOfCards = (props) => {
 
     return (
-        <span className={{marginTop: '150px'}} >
+        <span style={{textAlign: 'center', display: 'table'}} className={{marginTop: '150px'}} >
             {props.products.map((value) => {
                 return (
                     <CardComponent

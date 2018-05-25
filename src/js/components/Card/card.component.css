@@ -7,10 +7,12 @@
         border: 1px solid #eee;
         box-shadow: 0 2px 2px #ccc;
         padding: 20px;
+        text-align: left;
     }
 
     .header {
         width: 100%;
+        text-align: left;
         hight: 12px;
     }
 
@@ -51,12 +53,14 @@ footer ul h4 {
         border: 1px solid #eee;
         box-shadow: 0 2px 2px #ccc;
         padding: 20px;
+        text-align: left;
     }
 
 
     .header {
         width: 100%;
         hight: 12px;
+        text-align: left;
     }
 }
 
@@ -70,11 +74,15 @@ footer ul h4 {
         box-shadow: 0 2px 2px #ccc;
         width: 400px;
         padding: 20px;
+        text-align: left;
+
     }
 
     .header {
         width: 100%;
         hight: 12px;
+        text-align: left;
+
     }
 
 

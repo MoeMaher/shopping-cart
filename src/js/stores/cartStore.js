@@ -9,20 +9,20 @@
 import { Cart } from './cart.es6.js';
 import { AppDispatcher } from "../dispatcher/AppDispatcher";
 import { appConstants } from "../constants/appConstants";
-import localforage from 'localforage';
+// import localforage from 'localforage';
 var objectAssign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
 
 // initializing the cart and Loading if any
 let cart = new Cart();
-cart.loadFromJSON(JSON.parse(localStorage.getItem('cart'))).then(()=>{
+cart.loadFromJSON(JSON.parse(localStorage.getItem(appConstants.LOCAL_STORAGE_KEY))).then(()=>{
     cartStore.emit(appConstants.CART_EVENT);    // emitting a cart event for cart related components to get update.
 });
 
 // save the cart information to the localstorage.
 const saveCart = () => {
-    localStorage.setItem('cart', JSON.stringify(cart.toJSON()));
+    localStorage.setItem(appConstants.LOCAL_STORAGE_KEY, JSON.stringify(cart.toJSON()));
 }
 
 // intializing the store and adding changes listener and read only methods to the cart.

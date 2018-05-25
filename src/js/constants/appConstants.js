@@ -7,8 +7,8 @@ export var appConstants = {
     REMOVE_ITEM: "REMOVE_ITEM",
     REMOVE_PRODUCT: "REMOVE_PRODUCT",
     CLEAR_CART: "CLEAR_CART",
-    CART_EVENT: 'CHANGE'
-
+    CART_EVENT: 'CHANGE',
+    LOCAL_STORAGE_KEY: 'cartXZY'
 };
 
 
