@@ -1,22 +1,37 @@
+/**
+ * (FLUX Architecture)
+ *
+ * this class is responsible for managing the information of the cart, storing and manipulating
+ * any change to the cart have to be done here and triggered by App Dispatcher. FLUX Architecture.
+ */
+
+
 import { Cart } from './cart.es6.js';
 import { AppDispatcher } from "../dispatcher/AppDispatcher";
 import { appConstants } from "../constants/appConstants";
-
+import localforage from 'localforage';
 var objectAssign = require('object-assign');
 var EventEmitter = require('events').EventEmitter;
 
 
-var CHANGE_EVENT = 'CHANGE';
+// initializing the cart and Loading if any
+let cart = new Cart();
+cart.loadFromJSON(JSON.parse(localStorage.getItem('cart'))).then(()=>{
+    cartStore.emit(appConstants.CART_EVENT);    // emitting a cart event for cart related components to get update.
+});
 
-var cart = new Cart();
+// save the cart information to the localstorage.
+const saveCart = () => {
+    localStorage.setItem('cart', JSON.stringify(cart.toJSON()));
+}
 
-
+// intializing the store and adding changes listener and read only methods to the cart.
 export const cartStore = objectAssign({}, EventEmitter.prototype, {
     addChangeListener: function (cb) {
-        this.on(CHANGE_EVENT, cb);
+        this.on(appConstants.CART_EVENT, cb);
     },
     removeChangeListener: function (cb) {
-        this.removeListener(CHANGE_EVENT, cb);
+        this.removeListener(appConstants.CART_EVENT, cb);
     },
     getItems: function () {
         return cart.getItems();
@@ -30,36 +45,34 @@ export const cartStore = objectAssign({}, EventEmitter.prototype, {
     hasProduct: function(product) {
         return cart.hasProduct(product);
     }
-
 });
 
-AppDispatcher.register(function(payload) {
+// registering to the dispatcher to get notified if any (write) request occurred.
+AppDispatcher.register(async function (payload) {
     var action = payload.action;
-    console.log('in resister store with action type');
-    console.log(action);
     switch (action.actionType) {
         case (appConstants.ADD_ITEM):
-            cart.addItem(action.data);
-            console.log('adding item')
-            cartStore.emit(CHANGE_EVENT);
+            await cart.addItem(action.data);            // performing the task
+            saveCart();                                 // saving the cart to the localstorage
+            cartStore.emit(appConstants.CART_EVENT);    // emitting a cart event for cart related components to get update.
             break;
         case appConstants.CLEAR_CART:
-            cart.clearCart(action.data);
-            cartStore.emit(CHANGE_EVENT);
+            await cart.clearCart(action.data);
+            saveCart();
+            cartStore.emit(appConstants.CART_EVENT);
             break;
         case appConstants.REMOVE_ITEM:
-            cart.removeItem(action.data);
-            console.log('removing Item')
-            cartStore.emit(CHANGE_EVENT);
+            await cart.removeItem(action.data);
+            saveCart();
+            cartStore.emit(appConstants.CART_EVENT);
             break;
         case appConstants.REMOVE_PRODUCT:
-            cart.removeProduct(action.data);
-            cartStore.emit(CHANGE_EVENT);
+            await cart.removeProduct(action.data);
+            saveCart();
+            cartStore.emit(appConstants.CART_EVENT);
             break;
         default:
             console.log('default')
             return true;
     }
 });
-
-

@@ -1,3 +1,8 @@
+/**
+ * auto generated, its useful for production and make the application load faster
+ * @type {boolean}
+ */
+
 // In production, we register a service worker to serve assets from local cache.
 
 // This lets the app load faster on subsequent visits in production, and gives

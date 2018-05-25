@@ -1,9 +1,14 @@
-import {cartStore} from "../stores/cartStore";
+/**
+ * (FLUX Architecture)
+ *
+ * cardAction is responsible for routing the requests to the dispatcher with the intended actionType
+ * to be forwarded to the store and get excuted .
+ */
 
 import { appConstants } from "../constants/appConstants";
 import { AppDispatcher } from "../dispatcher/AppDispatcher";
 
-export const cartActions = {
+export const cartActions = {    //functions are self explanatory.
     addItem: function (item) {
         AppDispatcher.handleAction({
             actionType: appConstants.ADD_ITEM,
@@ -17,7 +22,6 @@ export const cartActions = {
         })
     },
     removeProduct: function (index) {
-        console.log('removing in Actions');
         AppDispatcher.handleAction({
             actionType: appConstants.REMOVE_PRODUCT,
             data: index

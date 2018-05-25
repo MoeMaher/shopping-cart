@@ -1,3 +1,7 @@
+/**
+ * Card Component given a product in the props
+ */
+
 import React from 'react';
 import Aux from '../../hoc/Aux';
 import classes from  './card.component.css';
@@ -5,6 +9,7 @@ import mainClasses from '../../../App.css';
 
 
 export const CardComponent = (props) => {
+    // Styling of the image of the product and adding its link
     let imgStyle = {
         backgroundImage: 'url('+props.image+')',
         backgroundSize: 'cover',
@@ -14,7 +19,6 @@ export const CardComponent = (props) => {
     }
 
     return (
-
     <div className={classes.card}>
 
         <header>
@@ -29,12 +33,17 @@ export const CardComponent = (props) => {
 
         <footer>
             <li style={{listStyleType: 'none'}}>
-                <h4 style={{display: 'flex'}}><a style={{margin: 'auto', marginLeft:'0px'}} ><a className={mainClasses["accent-color"]}>price: </a> {props.price}</a>
-                <button onClick={()=> {props.onAdd(props.id, props.title, props.price, props.image)}}>Add to Cart</button>
+                <h4 style={{display: 'flex'}}>
+                    <a style={{margin: 'auto', marginLeft:'0px'}} >
+                        <a className={mainClasses["accent-color"]}>
+                            price:
+                        </a>
+                        {props.price}
+                    </a>
+                    <button onClick={()=> {props.onAdd(props.id, props.title, props.price, props.image)}}>Add to Cart</button>
                 </h4>
             </li>
         </footer>
-
     </div>
 
     );

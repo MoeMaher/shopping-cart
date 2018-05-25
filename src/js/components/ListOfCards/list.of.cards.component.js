@@ -1,6 +1,9 @@
+/**
+ * component listing the cards given list of products.
+ */
+
 import React from 'react';
-import Aux from '../../hoc/Aux';
-var CardComponent = require('../../components/Card/card.component').CardComponent;
+import { CardComponent } from '../Card/card.component';
 
 
 export const ListOfCards = (props) => {
@@ -19,9 +22,7 @@ export const ListOfCards = (props) => {
                         key={value.id}
                     />
                 )
-
             })}
-
         </span>
     )
 }

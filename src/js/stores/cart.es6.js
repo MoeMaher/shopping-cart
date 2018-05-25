@@ -15,7 +15,6 @@ export const Cart = (function() {
 
             // Intializing the instance variable using the current class as the key
             _items.set(this, []);
-            this.$maher = 'maher';
         }
 
         // get the list of items
@@ -55,7 +54,7 @@ export const Cart = (function() {
         }
 
         // Adds a product or increment the item count
-        addItem(product) {
+        async addItem(product) {
             let exists = this.operationOnItemByProduct({product, operation: item => item.incrementCount()});
             if (!exists) {
                 let items = _items.get(this);
@@ -65,7 +64,7 @@ export const Cart = (function() {
         }
 
         // Decrement the count of the item containing the product or removes it.
-        removeItem(product) {
+        async removeItem(product) {
             this.operationOnItemByProduct({
                 product,
                 operation: item => {
@@ -80,7 +79,7 @@ export const Cart = (function() {
         }
 
         // removes the item that contains the product
-        removeProduct(product) {
+        async removeProduct(product) {
             this.operationOnItemByProduct({
                 product,
                 operation: item => {
@@ -113,8 +112,38 @@ export const Cart = (function() {
         }
 
         // removes all items
-        clearCart() {
+        async clearCart() {
             _items.set(this, []);
+        }
+
+        //load items into the cart from JSON Object
+        async loadFromJSON(JSONs) {
+            if(JSONs) {
+                let JSONObj = JSONs.JSONItems
+                for (let i = 0; i < JSONObj.length; i++) {
+                    let product = new Product(JSONObj[i].id, JSONObj[i].name, JSONObj[i].price, JSONObj[i].image);
+                    for (let j = 0; j < JSONObj[i].count; j++) {
+                        await this.addItem(product);
+                    }
+                }
+            }
+        }
+
+        // concatinate the items and there products into JSONobject
+        toJSON() {
+            let items = _items.get(this);
+            let JSONItems = [];
+            for( let i = 0; i < items.length ; i++ ) {
+                console.log(items[i].getCount());
+                JSONItems.push({
+                    count: items[i].getCount(),
+                    name: items[i].getProduct().getName(),
+                    id: items[i].getProduct().getId(),
+                    price: items[i].getProduct().getPrice(),
+                    image: items[i].getProduct().getImage()
+                });
+            }
+            return { JSONItems };
         }
 
     }

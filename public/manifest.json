@@ -1,9 +1,9 @@
 {
-  "short_name": "React App",
-  "name": "Create React App Sample",
+  "short_name": "Cart",
+  "name": "Shopping Cart",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "https://d30y9cdsu7xlg0.cloudfront.net/png/2370-200.png",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     }
