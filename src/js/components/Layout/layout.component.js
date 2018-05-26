@@ -5,7 +5,7 @@ import mainClasses from '../../../App.css';
 
 // styling the icons
 const cartIconStyle = {
-    backgroundImage:'url(https://www.iconsdb.com/icons/preview/white/shopping-cart-xxl.png  )',
+    backgroundImage:'url(https://www.iconsdb.com/icons/preview/white/shopping-cart-xxl.png)',
     backgroundSize: 'cover',
     backgroundPosition: 'center',
     width: '38px',
